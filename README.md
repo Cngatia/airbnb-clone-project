@@ -200,3 +200,88 @@ A booking has one payment
 
 This schema ensures clean data organization, referential integrity, and supports all major features of the application.
 
+✨ Feature Breakdown
+This project replicates the core functionality of a vacation rental platform, allowing users to list, browse, book, and review properties. Below is a breakdown of the main features and how they contribute to the overall user experience:
+
+👤 User Management
+Allows users to register, log in, and manage their profiles. It supports both guests and hosts, enabling authentication, authorization, and role-based access to features like property listings and bookings.
+
+🏠 Property Management
+Hosts can create, update, and delete property listings, including adding details such as location, description, images, and pricing. This feature ensures that listings are dynamic and reflect real-time availability.
+
+📅 Booking System
+Enables guests to view available properties and make reservations by selecting dates and confirming payments. It prevents double bookings and allows users to view and manage their booking history.
+
+💳 Payment Integration
+Handles secure payment processing for bookings. It calculates the total cost based on stay duration and ensures smooth transactions using mock or real payment gateways (depending on implementation).
+
+📝 Reviews & Ratings
+Guests can leave feedback on their stays, helping future users make informed decisions. Hosts can use this input to improve their listings and services.
+
+🔍 Search & Filters
+Users can search for properties by location, date, price range, and other filters. This improves the user experience by helping users quickly find suitable listings.
+
+
+
+🔒 API Security
+Securing the API is a critical aspect of this project, especially given the sensitivity of user data, booking records, and payment details. Below are the key security measures implemented to protect the platform:
+
+🔐 Authentication
+The system uses token-based authentication (e.g., JWT or Django Token Auth) to ensure that only registered users can access protected endpoints. This helps prevent unauthorized access and ensures session integrity.
+
+Why it matters:
+Authentication safeguards personal data, user sessions, and platform resources from unauthorized use or identity spoofing.
+
+✅ Authorization
+Role-based access control (RBAC) is enforced to differentiate between guests and hosts. Certain actions, like listing properties or managing bookings, are restricted based on user roles and ownership.
+
+Why it matters:
+Authorization ensures that users can only access or modify resources they own or are permitted to interact with, reducing misuse and data leakage.
+
+🚦 Rate Limiting
+API requests are throttled using rate limiting techniques (e.g., via Django REST Framework throttling) to prevent abuse such as brute-force login attempts or DDoS-style request floods.
+
+Why it matters:
+Rate limiting protects the API from performance degradation and potential exploitation by malicious actors.
+
+🔒 Data Encryption
+All communication between clients and the server is encrypted using HTTPS (SSL/TLS). Sensitive fields like passwords are hashed using secure algorithms like bcrypt.
+
+Why it matters:
+Encryption ensures that sensitive user information, including login credentials and payment data, cannot be intercepted or tampered with during transmission.
+
+🛡️ Input Validation & Error Handling
+Strict input validation and sanitized responses are implemented to prevent common attacks like SQL Injection, XSS, and information leakage.
+
+Why it matters:
+Proper validation and handling protect the application from malicious payloads and maintain platform integrity and stability.
+
+Security is a continuous process. As the project scales, additional measures such as audit logging, anomaly detection, and third-party penetration testing may be introduced to further harden the system.
+
+
+🚀 CI/CD Pipeline
+Continuous Integration (CI) and Continuous Deployment/Delivery (CD) are essential practices in modern software development that automate the process of building, testing, and deploying code. CI/CD pipelines help detect bugs early, ensure consistent builds, and speed up release cycles.
+
+For this project, the CI/CD pipeline ensures that every change pushed to the repository is automatically tested and, if successful, deployed to the staging or production environment.
+
+🛠️ Tools Used:
+GitHub Actions: Automates testing, linting, and deployment workflows directly from the GitHub repository.
+
+Docker: Containerizes the application to ensure consistent environments across development, testing, and deployment.
+
+Docker Compose: Orchestrates multi-service application setups during testing and development.
+
+Heroku / AWS / Render (optional): Can be used as deployment targets depending on infrastructure requirements.
+
+🔁 Pipeline Stages:
+Code Checkout – Triggered on every push or pull request.
+
+Build – The application and services are built using Docker.
+
+Test – Automated tests are run to validate the codebase.
+
+Lint & Format – Code style and standards are checked.
+
+Deploy – If all checks pass, the app is deployed to the staging or production environment.
+
+This setup improves reliability, encourages frequent updates, and ensures code quality throughout the development lifecycle.
